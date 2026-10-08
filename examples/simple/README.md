@@ -19,3 +19,14 @@ llama_print_timings: prompt eval time =   655.63 ms /    10 tokens (   65.56 ms 
 llama_print_timings:        eval time =  2180.97 ms /    27 runs   (   80.78 ms per token,    12.38 tokens per second)
 llama_print_timings:       total time =  2891.13 ms
 ```
+
+## llama-simple-prompt
+
+Same idea, but built on top of `llama-common`. It applies the model's chat template, so instruct
+models answer the prompt instead of continuing it, and it accepts the usual common arguments
+(`-ngl`, `-c`, `--temp`, ...). Common also converts the arguments and the console output to UTF-8,
+which is needed for non-ASCII prompts on Windows.
+
+```bash
+./llama-simple-prompt -m model.gguf -p "who are you?" -n 128
+```
